@@ -1,0 +1,15 @@
+import requests
+from pprint import pprint
+
+language_uri = "http://20.xx.yy.zz:5000"
+
+documents = { 'documents': [
+    { 'id': '1', 'text': 'This is a document written in English.' },
+    { 'id': '2', 'text': 'Este es un document escrito en Español.' },
+    { 'id': '3', 'text': '这是一个用中文写的文件' }
+]}
+
+response  = requests.post(language_uri, json=documents)
+languages = response.json()
+
+print(languages)
